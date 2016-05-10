@@ -1,0 +1,9 @@
+D:\Projects\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3.exe.config
+D:\Projects\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3.exe
+D:\Projects\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3.pdb
+D:\Projects\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.csprojResolveAssemblyReference.cache
+D:\Projects\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.Properties.Resources.resources
+D:\Projects\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.csproj.GenerateResource.Cache
+D:\Projects\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.exe
+D:\Projects\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.pdb
+D:\Projects\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.Form1.resources
