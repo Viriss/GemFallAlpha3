@@ -7,3 +7,14 @@ D:\Projects\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.csproj.GenerateR
 D:\Projects\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.exe
 D:\Projects\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.pdb
 D:\Projects\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.Form1.resources
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3.exe.config
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3.exe
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3.pdb
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.csprojResolveAssemblyReference.cache
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.Form1.resources
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.Properties.Resources.resources
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.csproj.GenerateResource.Cache
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.exe
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.pdb
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3Lib.dll
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3Lib.pdb
