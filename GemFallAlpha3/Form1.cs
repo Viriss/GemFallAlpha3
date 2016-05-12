@@ -25,6 +25,8 @@ namespace GemFallAlpha3
             ManageUnits v = new ManageUnits();
             //v.CreateTeam();
             Team = v.LoadTeam();
+
+            UpdateTeamDisplay();
         }
 
         private void CreateNewGrid()
@@ -32,6 +34,8 @@ namespace GemFallAlpha3
             gems = new oGrid(8, 8);
             gems.Create();
             //oScanGems scan = gems.ToScanGems();
+
+            button2.PerformClick();
 
             gems.FindMatches();
 
@@ -302,6 +306,44 @@ namespace GemFallAlpha3
                 {
                     tmrFillEmpty.Enabled = true;
                 }
+            }
+        }
+
+        private void UpdateTeamDisplay()
+        {
+            int i = 0;
+
+            ucUnit1.Visible = false;
+            ucUnit2.Visible = false;
+            ucUnit3.Visible = false;
+            ucUnit4.Visible = false;
+
+            foreach (oUnit u in Team.Units)
+            {
+                switch(i)
+                {
+                    case 0:
+                        ucUnit1.Visible = true;
+                        ucUnit1.Unit = u;
+                        ucUnit1.UpdateControl();
+                        break;
+                    case 1:
+                        ucUnit2.Visible = true;
+                        ucUnit2.Unit = u;
+                        ucUnit2.UpdateControl();
+                        break;
+                    case 2:
+                        ucUnit3.Visible = true;
+                        ucUnit3.Unit = u;
+                        ucUnit3.UpdateControl();
+                        break;
+                    case 3:
+                        ucUnit4.Visible = true;
+                        ucUnit4.Unit = u;
+                        ucUnit4.UpdateControl();
+                        break;
+                }
+                i += 1;
             }
         }
     }

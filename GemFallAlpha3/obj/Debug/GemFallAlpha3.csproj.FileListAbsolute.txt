@@ -21,3 +21,4 @@ C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3Lib
 C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\Newtonsoft.Json.dll
 C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\Newtonsoft.Json.xml
 C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\Team.json
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.ucUnit.resources
