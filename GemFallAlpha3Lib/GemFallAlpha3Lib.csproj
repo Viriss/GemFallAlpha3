@@ -7,10 +7,11 @@
     <ProjectGuid>{C06B649E-8541-4F7C-BD78-36831D68EAFF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GemFallAlpha3Lib</RootNamespace>
+    <RootNamespace>GemFallAlphaLib</RootNamespace>
     <AssemblyName>GemFallAlpha3Lib</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,10 +46,15 @@
     <Compile Include="Global.cs" />
     <Compile Include="oGem.cs" />
     <Compile Include="oGrid.cs" />
+    <Compile Include="oTeam.cs" />
+    <Compile Include="oUnitAbility.cs" />
+    <Compile Include="oUnitStatus.cs" />
+    <Compile Include="oUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScanKey.cs" />
     <Compile Include="ScanMatch.cs" />
     <Compile Include="ScanMove.cs" />
+    <Compile Include="UnitStat.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

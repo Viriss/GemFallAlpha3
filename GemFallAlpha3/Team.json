@@ -1,0 +1,65 @@
+{
+	"TeamID": "a5872159-71d1-4169-bca0-28731e115b4c",
+	"UserName": "Andrew",
+	"Units": [{
+		"UnitID": "8e75feb3-d98e-436a-a0c3-1f16c459746f",
+		"Name": "Bob",
+		"Stats": {
+			"Attack": 10,
+			"Defense": 10,
+			"Magic": 2,
+			"Resistance": 4,
+			"Luck": 2,
+			"MaxMana": 4,
+			"MaxHealth": 20
+		},
+		"Color": 16,
+		"CurMana": 4,
+		"CurHealth": 20,
+		"ArmorID": "00000000-0000-0000-0000-000000000000",
+		"WeaponID": "00000000-0000-0000-0000-000000000000",
+		"TrinketID": "00000000-0000-0000-0000-000000000000",
+		"Statuses": [],
+		"Abilities": []
+	}, {
+		"UnitID": "1235feb3-d98e-436a-a0c3-1f16c459746f",
+		"Name": "Farmer",
+		"Stats": {
+			"Attack": 4,
+			"Defense": 4,
+			"Magic": 0,
+			"Resistance": 4,
+			"Luck": 4,
+			"MaxMana": 0,
+			"MaxHealth": 12
+		},
+		"Color": 8,
+		"CurMana": 0,
+		"CurHealth": 12,
+		"ArmorID": "00000000-0000-0000-0000-000000000000",
+		"WeaponID": "00000000-0000-0000-0000-000000000000",
+		"TrinketID": "00000000-0000-0000-0000-000000000000",
+		"Statuses": [],
+		"Abilities": []
+	}, {
+		"UnitID": "5432feb3-d98e-436a-a0c3-1f16c459746f",
+		"Name": "Priest",
+		"Stats": {
+			"Attack": 2,
+			"Defense": 8,
+			"Magic": 7,
+			"Resistance": 5,
+			"Luck": 7,
+			"MaxMana": 10,
+			"MaxHealth": 10
+		},
+		"Color": 2,
+		"CurMana": 10,
+		"CurHealth": 10,
+		"ArmorID": "00000000-0000-0000-0000-000000000000",
+		"WeaponID": "00000000-0000-0000-0000-000000000000",
+		"TrinketID": "00000000-0000-0000-0000-000000000000",
+		"Statuses": [],
+		"Abilities": []
+	}]
+}

@@ -11,6 +11,7 @@ namespace GemFallAlpha3
     {
         int gridSize = 32;
         oGrid gems;
+        oTeam Team;
 
         public Form1()
         {
@@ -20,6 +21,10 @@ namespace GemFallAlpha3
         private void Form1_Load(object sender, EventArgs e)
         {
             CreateNewGrid();
+
+            ManageUnits v = new ManageUnits();
+            //v.CreateTeam();
+            Team = v.LoadTeam();
         }
 
         private void CreateNewGrid()

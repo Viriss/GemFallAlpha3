@@ -18,3 +18,6 @@ C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.ex
 C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\obj\Debug\GemFallAlpha3.pdb
 C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3Lib.dll
 C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\GemFallAlpha3Lib.pdb
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\Newtonsoft.Json.dll
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\Newtonsoft.Json.xml
+C:\Users\andrew\Documents\GemFallAlpha3\GemFallAlpha3\bin\Debug\Team.json
