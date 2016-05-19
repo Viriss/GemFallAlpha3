@@ -12,6 +12,10 @@ namespace GemFallAlpha3
         int gridSize = 32;
         oGrid gems;
         oTeam Team;
+        TeamType CurrentType = TeamType.Hero;
+        int ScoreHero = 0;
+        int ScoreMonster = 0;
+        bool hasExtraTurn = false;
 
         public Form1()
         {
@@ -25,6 +29,7 @@ namespace GemFallAlpha3
             ManageUnits v = new ManageUnits();
             //v.CreateTeam();
             Team = v.LoadTeam();
+            Team.Type = TeamType.Hero;
 
             UpdateTeamDisplay();
         }
@@ -146,6 +151,19 @@ namespace GemFallAlpha3
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             MouseEventArgs me = (MouseEventArgs)e;
+
+            if (me.Button == MouseButtons.Left)
+            {
+                DoGemLeftClick(e);
+            }
+            if (me.Button == MouseButtons.Right)
+            {
+                DoGemRightClick(e);
+            }
+        }
+        private void DoGemLeftClick(EventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
             Point coordinates = me.Location;
             bool isSelected = false;
             oGem currentSelection = gems.GetSelected();
@@ -169,6 +187,7 @@ namespace GemFallAlpha3
                     {
                         //swap gems
                         gems.SwapGems(g.Index, currentSelection.Index);
+                        hasExtraTurn = true;
                     }
 
                     DrawScan(gems);
@@ -183,6 +202,16 @@ namespace GemFallAlpha3
             g.isSelected = !isSelected;
             DrawScan(gems);
         }
+        private void DoGemRightClick(EventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            Point coordinates = me.Location;
+
+            oGem g = gems.Gem(coordinates.X / gridSize, coordinates.Y / gridSize);
+            g.SetColor(GemColor.Purple);
+            DrawScan(gems);
+        }
+
 
         private void btnMatches_Click(object sender, EventArgs e)
         {
@@ -190,6 +219,14 @@ namespace GemFallAlpha3
             bool foundMatches = false;
 
             pnlOptions.Height = 0;
+
+            if (CurrentType == TeamType.Hero)
+                ScoreHero += gems.Score();
+            if (CurrentType == TeamType.Monster)
+                ScoreMonster += gems.Score();
+
+            if (gems.HighestScore() > 3)
+                hasExtraTurn = true;
 
             foreach (oGem g in gems.Gems)
             {
@@ -213,7 +250,36 @@ namespace GemFallAlpha3
             else
             {
                 pnlOptions.Height = 664;
+                SwitchTeam();
+            }
+        }
+        private void SwitchTeam()
+        {
+            lblHeroScore.Text = ScoreHero.ToString();
+            lblMonsterScore.Text = ScoreMonster.ToString();
+
+            if (hasExtraTurn) {
+                hasExtraTurn = false;
+                if (CurrentType == TeamType.Monster)
+                {
+                    tmrBestMove.Enabled = true;
+                }
+                return;
+            }
+
+            lblMonsterTurn.Visible = false;
+            lblTurnHero.Visible = false;
+
+            if (CurrentType == TeamType.Hero)
+            {
+                CurrentType = TeamType.Monster;
+                lblMonsterTurn.Visible = true;
                 tmrBestMove.Enabled = true;
+            }
+            else
+            {
+                CurrentType = TeamType.Hero;
+                lblTurnHero.Visible = true;
             }
         }
 
@@ -239,23 +305,23 @@ namespace GemFallAlpha3
             }
         }
 
+        #region "Timers"
         private void tmrMatches_Tick(object sender, EventArgs e)
         {
             tmrMatches.Enabled = false;
             btnDown.PerformClick();
         }
-
         private void tmrDown_Tick(object sender, EventArgs e)
         {
             tmrDown.Enabled = false;
             btnFill.PerformClick();
         }
-
         private void tmrFillEmpty_Tick(object sender, EventArgs e)
         {
             tmrFillEmpty.Enabled = false;
             btnMatches.PerformClick();
         }
+        #endregion
 
         private void button3_Click(object sender, EventArgs e)
         {

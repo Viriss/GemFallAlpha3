@@ -196,9 +196,15 @@ namespace GemFallAlphaLib
         public int Score()
         {
             int val = 0;
+            /*
             foreach (ScanMatch x in Matches)
             {
                 if (x.Strength > 2) { val += x.Strength; }
+            }
+            */
+            foreach(oGem g in Gems)
+            {
+                if (g.HighestMatch() > 2) { val += 1; }
             }
             return val;
         }

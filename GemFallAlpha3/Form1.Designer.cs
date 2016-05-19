@@ -44,6 +44,14 @@
             this.tmrMatches = new System.Windows.Forms.Timer(this.components);
             this.tmrDown = new System.Windows.Forms.Timer(this.components);
             this.tmrBestMove = new System.Windows.Forms.Timer(this.components);
+            this.lblMonsterScore = new System.Windows.Forms.Label();
+            this.lblHeroScore = new System.Windows.Forms.Label();
+            this.lblTurnHero = new System.Windows.Forms.Label();
+            this.lblMonsterTurn = new System.Windows.Forms.Label();
+            this.ucUnit5 = new GemFallAlpha3.ucUnit();
+            this.ucUnit6 = new GemFallAlpha3.ucUnit();
+            this.ucUnit7 = new GemFallAlpha3.ucUnit();
+            this.ucUnit8 = new GemFallAlpha3.ucUnit();
             this.ucUnit4 = new GemFallAlpha3.ucUnit();
             this.ucUnit3 = new GemFallAlpha3.ucUnit();
             this.ucUnit2 = new GemFallAlpha3.ucUnit();
@@ -75,18 +83,18 @@
             this.pnlOptions.Controls.Add(this.btnFill);
             this.pnlOptions.Controls.Add(this.lblStableAttempts);
             this.pnlOptions.Controls.Add(this.btnDown);
-            this.pnlOptions.Location = new System.Drawing.Point(1072, 8);
+            this.pnlOptions.Location = new System.Drawing.Point(344, 664);
             this.pnlOptions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlOptions.Name = "pnlOptions";
-            this.pnlOptions.Size = new System.Drawing.Size(359, 663);
+            this.pnlOptions.Size = new System.Drawing.Size(824, 136);
             this.pnlOptions.TabIndex = 10;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(7, 215);
+            this.button3.Location = new System.Drawing.Point(264, 8);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(217, 71);
+            this.button3.Size = new System.Drawing.Size(217, 49);
             this.button3.TabIndex = 9;
             this.button3.Text = "Show Moves";
             this.button3.UseVisualStyleBackColor = true;
@@ -94,10 +102,10 @@
             // 
             // btnMatches
             // 
-            this.btnMatches.Location = new System.Drawing.Point(16, 415);
+            this.btnMatches.Location = new System.Drawing.Point(8, 72);
             this.btnMatches.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnMatches.Name = "btnMatches";
-            this.btnMatches.Size = new System.Drawing.Size(313, 71);
+            this.btnMatches.Size = new System.Drawing.Size(240, 50);
             this.btnMatches.TabIndex = 4;
             this.btnMatches.Text = "Destory Matches";
             this.btnMatches.UseVisualStyleBackColor = true;
@@ -108,7 +116,7 @@
             this.cbxLoop.AutoSize = true;
             this.cbxLoop.Checked = true;
             this.cbxLoop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxLoop.Location = new System.Drawing.Point(160, 377);
+            this.cbxLoop.Location = new System.Drawing.Point(680, 16);
             this.cbxLoop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxLoop.Name = "cbxLoop";
             this.cbxLoop.Size = new System.Drawing.Size(117, 36);
@@ -121,7 +129,7 @@
             this.button1.Location = new System.Drawing.Point(7, 8);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 71);
+            this.button1.Size = new System.Drawing.Size(121, 49);
             this.button1.TabIndex = 1;
             this.button1.Text = "New";
             this.button1.UseVisualStyleBackColor = true;
@@ -132,7 +140,7 @@
             this.cbxAuto.AutoSize = true;
             this.cbxAuto.Checked = true;
             this.cbxAuto.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxAuto.Location = new System.Drawing.Point(16, 377);
+            this.cbxAuto.Location = new System.Drawing.Point(536, 16);
             this.cbxAuto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxAuto.Name = "cbxAuto";
             this.cbxAuto.Size = new System.Drawing.Size(112, 36);
@@ -142,21 +150,21 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(7, 96);
+            this.button2.Location = new System.Drawing.Point(136, 8);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(217, 71);
+            this.button2.Size = new System.Drawing.Size(121, 49);
             this.button2.TabIndex = 2;
-            this.button2.Text = "New Stable";
+            this.button2.Text = "Stable";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // btnFill
             // 
-            this.btnFill.Location = new System.Drawing.Point(16, 577);
+            this.btnFill.Location = new System.Drawing.Point(432, 72);
             this.btnFill.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnFill.Name = "btnFill";
-            this.btnFill.Size = new System.Drawing.Size(313, 71);
+            this.btnFill.Size = new System.Drawing.Size(168, 48);
             this.btnFill.TabIndex = 6;
             this.btnFill.Text = "Fill Empty";
             this.btnFill.UseVisualStyleBackColor = true;
@@ -165,7 +173,7 @@
             // lblStableAttempts
             // 
             this.lblStableAttempts.AutoSize = true;
-            this.lblStableAttempts.Location = new System.Drawing.Point(25, 167);
+            this.lblStableAttempts.Location = new System.Drawing.Point(712, 80);
             this.lblStableAttempts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStableAttempts.Name = "lblStableAttempts";
             this.lblStableAttempts.Size = new System.Drawing.Size(99, 32);
@@ -174,10 +182,10 @@
             // 
             // btnDown
             // 
-            this.btnDown.Location = new System.Drawing.Point(16, 496);
+            this.btnDown.Location = new System.Drawing.Point(256, 72);
             this.btnDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(313, 71);
+            this.btnDown.Size = new System.Drawing.Size(168, 49);
             this.btnDown.TabIndex = 5;
             this.btnDown.Text = "Drop Down";
             this.btnDown.UseVisualStyleBackColor = true;
@@ -203,11 +211,80 @@
             this.tmrBestMove.Interval = 300;
             this.tmrBestMove.Tick += new System.EventHandler(this.tmrBestMove_Tick);
             // 
+            // lblMonsterScore
+            // 
+            this.lblMonsterScore.AutoSize = true;
+            this.lblMonsterScore.Location = new System.Drawing.Point(1072, 40);
+            this.lblMonsterScore.Name = "lblMonsterScore";
+            this.lblMonsterScore.Size = new System.Drawing.Size(0, 32);
+            this.lblMonsterScore.TabIndex = 19;
+            // 
+            // lblHeroScore
+            // 
+            this.lblHeroScore.AutoSize = true;
+            this.lblHeroScore.Location = new System.Drawing.Point(16, 40);
+            this.lblHeroScore.Name = "lblHeroScore";
+            this.lblHeroScore.Size = new System.Drawing.Size(0, 32);
+            this.lblHeroScore.TabIndex = 20;
+            // 
+            // lblTurnHero
+            // 
+            this.lblTurnHero.BackColor = System.Drawing.Color.Goldenrod;
+            this.lblTurnHero.Location = new System.Drawing.Point(16, 16);
+            this.lblTurnHero.Name = "lblTurnHero";
+            this.lblTurnHero.Size = new System.Drawing.Size(320, 16);
+            this.lblTurnHero.TabIndex = 21;
+            // 
+            // lblMonsterTurn
+            // 
+            this.lblMonsterTurn.BackColor = System.Drawing.Color.Goldenrod;
+            this.lblMonsterTurn.Location = new System.Drawing.Point(1072, 16);
+            this.lblMonsterTurn.Name = "lblMonsterTurn";
+            this.lblMonsterTurn.Size = new System.Drawing.Size(320, 16);
+            this.lblMonsterTurn.TabIndex = 22;
+            this.lblMonsterTurn.Visible = false;
+            // 
+            // ucUnit5
+            // 
+            this.ucUnit5.BackColor = System.Drawing.Color.White;
+            this.ucUnit5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucUnit5.Location = new System.Drawing.Point(1072, 488);
+            this.ucUnit5.Name = "ucUnit5";
+            this.ucUnit5.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit5.TabIndex = 18;
+            // 
+            // ucUnit6
+            // 
+            this.ucUnit6.BackColor = System.Drawing.Color.White;
+            this.ucUnit6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucUnit6.Location = new System.Drawing.Point(1072, 352);
+            this.ucUnit6.Name = "ucUnit6";
+            this.ucUnit6.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit6.TabIndex = 17;
+            // 
+            // ucUnit7
+            // 
+            this.ucUnit7.BackColor = System.Drawing.Color.White;
+            this.ucUnit7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucUnit7.Location = new System.Drawing.Point(1072, 216);
+            this.ucUnit7.Name = "ucUnit7";
+            this.ucUnit7.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit7.TabIndex = 16;
+            // 
+            // ucUnit8
+            // 
+            this.ucUnit8.BackColor = System.Drawing.Color.White;
+            this.ucUnit8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucUnit8.Location = new System.Drawing.Point(1072, 80);
+            this.ucUnit8.Name = "ucUnit8";
+            this.ucUnit8.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit8.TabIndex = 15;
+            // 
             // ucUnit4
             // 
             this.ucUnit4.BackColor = System.Drawing.Color.White;
             this.ucUnit4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit4.Location = new System.Drawing.Point(16, 456);
+            this.ucUnit4.Location = new System.Drawing.Point(16, 488);
             this.ucUnit4.Name = "ucUnit4";
             this.ucUnit4.Size = new System.Drawing.Size(325, 125);
             this.ucUnit4.TabIndex = 14;
@@ -216,7 +293,7 @@
             // 
             this.ucUnit3.BackColor = System.Drawing.Color.White;
             this.ucUnit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit3.Location = new System.Drawing.Point(16, 320);
+            this.ucUnit3.Location = new System.Drawing.Point(16, 352);
             this.ucUnit3.Name = "ucUnit3";
             this.ucUnit3.Size = new System.Drawing.Size(325, 125);
             this.ucUnit3.TabIndex = 13;
@@ -225,7 +302,7 @@
             // 
             this.ucUnit2.BackColor = System.Drawing.Color.White;
             this.ucUnit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit2.Location = new System.Drawing.Point(16, 184);
+            this.ucUnit2.Location = new System.Drawing.Point(16, 216);
             this.ucUnit2.Name = "ucUnit2";
             this.ucUnit2.Size = new System.Drawing.Size(325, 125);
             this.ucUnit2.TabIndex = 12;
@@ -234,7 +311,7 @@
             // 
             this.ucUnit1.BackColor = System.Drawing.Color.White;
             this.ucUnit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit1.Location = new System.Drawing.Point(16, 48);
+            this.ucUnit1.Location = new System.Drawing.Point(16, 80);
             this.ucUnit1.Name = "ucUnit1";
             this.ucUnit1.Size = new System.Drawing.Size(325, 125);
             this.ucUnit1.TabIndex = 11;
@@ -243,14 +320,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1463, 699);
+            this.ClientSize = new System.Drawing.Size(1417, 808);
+            this.Controls.Add(this.lblMonsterTurn);
+            this.Controls.Add(this.lblTurnHero);
+            this.Controls.Add(this.lblHeroScore);
+            this.Controls.Add(this.lblMonsterScore);
+            this.Controls.Add(this.ucUnit5);
+            this.Controls.Add(this.ucUnit6);
+            this.Controls.Add(this.ucUnit7);
+            this.Controls.Add(this.ucUnit8);
             this.Controls.Add(this.ucUnit4);
             this.Controls.Add(this.ucUnit3);
             this.Controls.Add(this.ucUnit2);
             this.Controls.Add(this.ucUnit1);
             this.Controls.Add(this.pnlOptions);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -259,6 +344,7 @@
             this.pnlOptions.ResumeLayout(false);
             this.pnlOptions.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -283,6 +369,14 @@
         private ucUnit ucUnit2;
         private ucUnit ucUnit3;
         private ucUnit ucUnit4;
+        private ucUnit ucUnit5;
+        private ucUnit ucUnit6;
+        private ucUnit ucUnit7;
+        private ucUnit ucUnit8;
+        private System.Windows.Forms.Label lblMonsterScore;
+        private System.Windows.Forms.Label lblHeroScore;
+        private System.Windows.Forms.Label lblTurnHero;
+        private System.Windows.Forms.Label lblMonsterTurn;
     }
 }
 
