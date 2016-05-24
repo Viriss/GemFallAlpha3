@@ -113,25 +113,7 @@ namespace GemFallAlphaLib
             sm.Add();
             Matches[key] = sm;
         }
-        public GemColorSimple GetCrossMatchColor()
-        {
-            foreach (KeyValuePair<ScanKey, ScanMatch> vertMatch in Matches)
-            {
-                if (vertMatch.Value.Strength > 2 && (
-                    vertMatch.Value.Direction == ScanDirection.Left || vertMatch.Value.Direction == ScanDirection.Right))
-                {
-                    foreach (KeyValuePair<ScanKey, ScanMatch> horMatch in Matches)
-                    {
-                        if (horMatch.Value.Strength > 2 && (
-                            horMatch.Value.Direction == ScanDirection.Up || horMatch.Value.Direction == ScanDirection.Down))
-                        {
-                            if (vertMatch.Value.Color == horMatch.Value.Color) { return vertMatch.Value.Color; }
-                        }
-                    }
-                }
-            }
-            return GemColorSimple.none;
-        }
+
         public int HighestMatch()
         {
             int val = 0;

@@ -34,9 +34,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.btnMatches = new System.Windows.Forms.Button();
             this.cbxLoop = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNewGrid = new System.Windows.Forms.Button();
             this.cbxAuto = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnStableGrid = new System.Windows.Forms.Button();
             this.btnFill = new System.Windows.Forms.Button();
             this.lblStableAttempts = new System.Windows.Forms.Label();
             this.btnDown = new System.Windows.Forms.Button();
@@ -44,10 +44,10 @@
             this.tmrMatches = new System.Windows.Forms.Timer(this.components);
             this.tmrDown = new System.Windows.Forms.Timer(this.components);
             this.tmrBestMove = new System.Windows.Forms.Timer(this.components);
-            this.lblMonsterScore = new System.Windows.Forms.Label();
-            this.lblHeroScore = new System.Windows.Forms.Label();
             this.lblTurnHero = new System.Windows.Forms.Label();
             this.lblMonsterTurn = new System.Windows.Forms.Label();
+            this.ucManaPool2 = new GemFallAlpha3.ucManaPool();
+            this.ucManaPool1 = new GemFallAlpha3.ucManaPool();
             this.ucUnit5 = new GemFallAlpha3.ucUnit();
             this.ucUnit6 = new GemFallAlpha3.ucUnit();
             this.ucUnit7 = new GemFallAlpha3.ucUnit();
@@ -77,9 +77,9 @@
             this.pnlOptions.Controls.Add(this.button3);
             this.pnlOptions.Controls.Add(this.btnMatches);
             this.pnlOptions.Controls.Add(this.cbxLoop);
-            this.pnlOptions.Controls.Add(this.button1);
+            this.pnlOptions.Controls.Add(this.btnNewGrid);
             this.pnlOptions.Controls.Add(this.cbxAuto);
-            this.pnlOptions.Controls.Add(this.button2);
+            this.pnlOptions.Controls.Add(this.btnStableGrid);
             this.pnlOptions.Controls.Add(this.btnFill);
             this.pnlOptions.Controls.Add(this.lblStableAttempts);
             this.pnlOptions.Controls.Add(this.btnDown);
@@ -124,16 +124,16 @@
             this.cbxLoop.Text = "Loop";
             this.cbxLoop.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnNewGrid
             // 
-            this.button1.Location = new System.Drawing.Point(7, 8);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 49);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "New";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnNewGrid.Location = new System.Drawing.Point(7, 8);
+            this.btnNewGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnNewGrid.Name = "btnNewGrid";
+            this.btnNewGrid.Size = new System.Drawing.Size(121, 49);
+            this.btnNewGrid.TabIndex = 1;
+            this.btnNewGrid.Text = "New";
+            this.btnNewGrid.UseVisualStyleBackColor = true;
+            this.btnNewGrid.Click += new System.EventHandler(this.btnNewGrid_Click);
             // 
             // cbxAuto
             // 
@@ -148,16 +148,16 @@
             this.cbxAuto.Text = "Auto";
             this.cbxAuto.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnStableGrid
             // 
-            this.button2.Location = new System.Drawing.Point(136, 8);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 49);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Stable";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.btnStableGrid.Location = new System.Drawing.Point(136, 8);
+            this.btnStableGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnStableGrid.Name = "btnStableGrid";
+            this.btnStableGrid.Size = new System.Drawing.Size(121, 49);
+            this.btnStableGrid.TabIndex = 2;
+            this.btnStableGrid.Text = "Stable";
+            this.btnStableGrid.UseVisualStyleBackColor = true;
+            this.btnStableGrid.Click += new System.EventHandler(this.btnStableGrid_Click);
             // 
             // btnFill
             // 
@@ -211,109 +211,107 @@
             this.tmrBestMove.Interval = 300;
             this.tmrBestMove.Tick += new System.EventHandler(this.tmrBestMove_Tick);
             // 
-            // lblMonsterScore
-            // 
-            this.lblMonsterScore.AutoSize = true;
-            this.lblMonsterScore.Location = new System.Drawing.Point(1072, 40);
-            this.lblMonsterScore.Name = "lblMonsterScore";
-            this.lblMonsterScore.Size = new System.Drawing.Size(0, 32);
-            this.lblMonsterScore.TabIndex = 19;
-            // 
-            // lblHeroScore
-            // 
-            this.lblHeroScore.AutoSize = true;
-            this.lblHeroScore.Location = new System.Drawing.Point(16, 40);
-            this.lblHeroScore.Name = "lblHeroScore";
-            this.lblHeroScore.Size = new System.Drawing.Size(0, 32);
-            this.lblHeroScore.TabIndex = 20;
-            // 
             // lblTurnHero
             // 
-            this.lblTurnHero.BackColor = System.Drawing.Color.Goldenrod;
-            this.lblTurnHero.Location = new System.Drawing.Point(16, 16);
+            this.lblTurnHero.BackColor = System.Drawing.Color.Red;
+            this.lblTurnHero.Location = new System.Drawing.Point(24, 16);
             this.lblTurnHero.Name = "lblTurnHero";
-            this.lblTurnHero.Size = new System.Drawing.Size(320, 16);
+            this.lblTurnHero.Size = new System.Drawing.Size(304, 24);
             this.lblTurnHero.TabIndex = 21;
             // 
             // lblMonsterTurn
             // 
-            this.lblMonsterTurn.BackColor = System.Drawing.Color.Goldenrod;
-            this.lblMonsterTurn.Location = new System.Drawing.Point(1072, 16);
+            this.lblMonsterTurn.BackColor = System.Drawing.Color.Red;
+            this.lblMonsterTurn.Location = new System.Drawing.Point(1080, 16);
             this.lblMonsterTurn.Name = "lblMonsterTurn";
-            this.lblMonsterTurn.Size = new System.Drawing.Size(320, 16);
+            this.lblMonsterTurn.Size = new System.Drawing.Size(304, 24);
             this.lblMonsterTurn.TabIndex = 22;
             this.lblMonsterTurn.Visible = false;
+            // 
+            // ucManaPool2
+            // 
+            this.ucManaPool2.Location = new System.Drawing.Point(1080, 96);
+            this.ucManaPool2.Name = "ucManaPool2";
+            this.ucManaPool2.Size = new System.Drawing.Size(312, 68);
+            this.ucManaPool2.TabIndex = 24;
+            // 
+            // ucManaPool1
+            // 
+            this.ucManaPool1.Location = new System.Drawing.Point(24, 96);
+            this.ucManaPool1.Name = "ucManaPool1";
+            this.ucManaPool1.Size = new System.Drawing.Size(312, 68);
+            this.ucManaPool1.TabIndex = 23;
             // 
             // ucUnit5
             // 
             this.ucUnit5.BackColor = System.Drawing.Color.White;
             this.ucUnit5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit5.Location = new System.Drawing.Point(1072, 488);
+            this.ucUnit5.Location = new System.Drawing.Point(1072, 512);
             this.ucUnit5.Name = "ucUnit5";
-            this.ucUnit5.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit5.Size = new System.Drawing.Size(325, 104);
             this.ucUnit5.TabIndex = 18;
             // 
             // ucUnit6
             // 
             this.ucUnit6.BackColor = System.Drawing.Color.White;
             this.ucUnit6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit6.Location = new System.Drawing.Point(1072, 352);
+            this.ucUnit6.Location = new System.Drawing.Point(1072, 400);
             this.ucUnit6.Name = "ucUnit6";
-            this.ucUnit6.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit6.Size = new System.Drawing.Size(325, 104);
             this.ucUnit6.TabIndex = 17;
             // 
             // ucUnit7
             // 
             this.ucUnit7.BackColor = System.Drawing.Color.White;
             this.ucUnit7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit7.Location = new System.Drawing.Point(1072, 216);
+            this.ucUnit7.Location = new System.Drawing.Point(1072, 288);
             this.ucUnit7.Name = "ucUnit7";
-            this.ucUnit7.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit7.Size = new System.Drawing.Size(325, 104);
             this.ucUnit7.TabIndex = 16;
             // 
             // ucUnit8
             // 
             this.ucUnit8.BackColor = System.Drawing.Color.White;
             this.ucUnit8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit8.Location = new System.Drawing.Point(1072, 80);
+            this.ucUnit8.Location = new System.Drawing.Point(1072, 176);
             this.ucUnit8.Name = "ucUnit8";
-            this.ucUnit8.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit8.Size = new System.Drawing.Size(325, 104);
             this.ucUnit8.TabIndex = 15;
             // 
             // ucUnit4
             // 
             this.ucUnit4.BackColor = System.Drawing.Color.White;
             this.ucUnit4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit4.Location = new System.Drawing.Point(16, 488);
+            this.ucUnit4.Location = new System.Drawing.Point(16, 512);
             this.ucUnit4.Name = "ucUnit4";
-            this.ucUnit4.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit4.Size = new System.Drawing.Size(325, 104);
             this.ucUnit4.TabIndex = 14;
             // 
             // ucUnit3
             // 
             this.ucUnit3.BackColor = System.Drawing.Color.White;
             this.ucUnit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit3.Location = new System.Drawing.Point(16, 352);
+            this.ucUnit3.Location = new System.Drawing.Point(16, 400);
             this.ucUnit3.Name = "ucUnit3";
-            this.ucUnit3.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit3.Size = new System.Drawing.Size(325, 104);
             this.ucUnit3.TabIndex = 13;
             // 
             // ucUnit2
             // 
             this.ucUnit2.BackColor = System.Drawing.Color.White;
             this.ucUnit2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit2.Location = new System.Drawing.Point(16, 216);
+            this.ucUnit2.Location = new System.Drawing.Point(16, 288);
             this.ucUnit2.Name = "ucUnit2";
-            this.ucUnit2.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit2.Size = new System.Drawing.Size(325, 104);
             this.ucUnit2.TabIndex = 12;
             // 
             // ucUnit1
             // 
             this.ucUnit1.BackColor = System.Drawing.Color.White;
             this.ucUnit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUnit1.Location = new System.Drawing.Point(16, 80);
+            this.ucUnit1.Location = new System.Drawing.Point(16, 176);
             this.ucUnit1.Name = "ucUnit1";
-            this.ucUnit1.Size = new System.Drawing.Size(325, 125);
+            this.ucUnit1.Size = new System.Drawing.Size(325, 104);
             this.ucUnit1.TabIndex = 11;
             // 
             // Form1
@@ -321,10 +319,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1417, 808);
+            this.Controls.Add(this.ucManaPool2);
+            this.Controls.Add(this.ucManaPool1);
             this.Controls.Add(this.lblMonsterTurn);
             this.Controls.Add(this.lblTurnHero);
-            this.Controls.Add(this.lblHeroScore);
-            this.Controls.Add(this.lblMonsterScore);
             this.Controls.Add(this.ucUnit5);
             this.Controls.Add(this.ucUnit6);
             this.Controls.Add(this.ucUnit7);
@@ -344,7 +342,6 @@
             this.pnlOptions.ResumeLayout(false);
             this.pnlOptions.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -354,9 +351,9 @@
         private System.Windows.Forms.Panel pnlOptions;
         private System.Windows.Forms.Button btnMatches;
         private System.Windows.Forms.CheckBox cbxLoop;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNewGrid;
         private System.Windows.Forms.CheckBox cbxAuto;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnStableGrid;
         private System.Windows.Forms.Button btnFill;
         private System.Windows.Forms.Label lblStableAttempts;
         private System.Windows.Forms.Button btnDown;
@@ -373,10 +370,10 @@
         private ucUnit ucUnit6;
         private ucUnit ucUnit7;
         private ucUnit ucUnit8;
-        private System.Windows.Forms.Label lblMonsterScore;
-        private System.Windows.Forms.Label lblHeroScore;
         private System.Windows.Forms.Label lblTurnHero;
         private System.Windows.Forms.Label lblMonsterTurn;
+        private ucManaPool ucManaPool1;
+        private ucManaPool ucManaPool2;
     }
 }
 

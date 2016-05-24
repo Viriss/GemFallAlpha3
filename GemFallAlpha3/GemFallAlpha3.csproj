@@ -59,6 +59,12 @@
     <Compile Include="ManageUnits.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucManaPool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucManaPool.Designer.cs">
+      <DependentUpon>ucManaPool.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucUnit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -77,6 +83,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ucManaPool.resx">
+      <DependentUpon>ucManaPool.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucUnit.resx">
       <DependentUpon>ucUnit.cs</DependentUpon>
     </EmbeddedResource>

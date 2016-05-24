@@ -11,10 +11,8 @@ namespace GemFallAlpha3
     {
         int gridSize = 32;
         oGrid gems;
-        oTeam Team;
+        oTeam[] Teams = new oTeam[2];
         TeamType CurrentType = TeamType.Hero;
-        int ScoreHero = 0;
-        int ScoreMonster = 0;
         bool hasExtraTurn = false;
 
         public Form1()
@@ -24,14 +22,27 @@ namespace GemFallAlpha3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CreateNewGrid();
-
             ManageUnits v = new ManageUnits();
             //v.CreateTeam();
-            Team = v.LoadTeam();
-            Team.Type = TeamType.Hero;
+            Teams[0] = v.LoadTeam();
+            Teams[0].Type = TeamType.Hero;
 
+            Teams[1] = new oTeam();
+
+            CreateNewGrid();
             UpdateTeamDisplay();
+        }
+
+        private oTeam Team()
+        {
+            if (CurrentType == TeamType.Hero)
+            {
+                return Teams[0];
+            }
+            else
+            {
+                return Teams[1];
+            }
         }
 
         private void CreateNewGrid()
@@ -40,7 +51,7 @@ namespace GemFallAlpha3
             gems.Create();
             //oScanGems scan = gems.ToScanGems();
 
-            button2.PerformClick();
+            btnStableGrid.PerformClick();
 
             gems.FindMatches();
 
@@ -86,6 +97,11 @@ namespace GemFallAlpha3
             }
 
             pictureBox1.BackgroundImage = img;
+
+            ucManaPool1.Pool = Teams[0].ManaPool;
+            ucManaPool1.RefreshPool();
+            ucManaPool2.Pool = Teams[1].ManaPool;
+            ucManaPool2.RefreshPool();
         }
         private SolidBrush GetBrush(GemColor color)
         {
@@ -125,12 +141,12 @@ namespace GemFallAlpha3
             return new SolidBrush(c);
         }
           
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnNewGrid_Click(object sender, EventArgs e)
         {
             CreateNewGrid();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void btnStableGrid_Click(object sender, EventArgs e)
         {
             int cnt = 0;
 
@@ -208,7 +224,31 @@ namespace GemFallAlpha3
             Point coordinates = me.Location;
 
             oGem g = gems.Gem(coordinates.X / gridSize, coordinates.Y / gridSize);
-            g.SetColor(GemColor.Purple);
+            switch (g.Color)
+            {
+                case GemColor.Red:
+                    g.SetColor(GemColor.Purple);
+                    break;
+                case GemColor.Purple:
+                    g.SetColor(GemColor.Green);
+                    break;
+                case GemColor.Green:
+                    g.SetColor(GemColor.Brown);
+                    break;
+                case GemColor.Brown:
+                    g.SetColor(GemColor.Blue);
+                    break;
+                case GemColor.Blue:
+                    g.SetColor(GemColor.Yellow);
+                    break;
+                case GemColor.Yellow:
+                    g.SetColor(GemColor.White);
+                    break;
+                case GemColor.White:
+                    g.SetColor(GemColor.Red);
+                    break;
+            }
+
             DrawScan(gems);
         }
 
@@ -220,11 +260,6 @@ namespace GemFallAlpha3
 
             pnlOptions.Height = 0;
 
-            if (CurrentType == TeamType.Hero)
-                ScoreHero += gems.Score();
-            if (CurrentType == TeamType.Monster)
-                ScoreMonster += gems.Score();
-
             if (gems.HighestScore() > 3)
                 hasExtraTurn = true;
 
@@ -234,6 +269,8 @@ namespace GemFallAlpha3
                 {
                     if (m.Value.Strength > 2)
                     {
+                        Team().ManaPool.Add((GemColorSimple)g.Color, 1);
+
                         foundMatches = true;
                         g.Color -= (GemColor)m.Value.Color;
                         gems.Gem(g.X, g.Y).Color = g.Color;
@@ -255,9 +292,6 @@ namespace GemFallAlpha3
         }
         private void SwitchTeam()
         {
-            lblHeroScore.Text = ScoreHero.ToString();
-            lblMonsterScore.Text = ScoreMonster.ToString();
-
             if (hasExtraTurn) {
                 hasExtraTurn = false;
                 if (CurrentType == TeamType.Monster)
@@ -384,7 +418,7 @@ namespace GemFallAlpha3
             ucUnit3.Visible = false;
             ucUnit4.Visible = false;
 
-            foreach (oUnit u in Team.Units)
+            foreach (oUnit u in Teams[0].Units)
             {
                 switch(i)
                 {

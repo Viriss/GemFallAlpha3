@@ -36,24 +36,23 @@
             // lblName
             // 
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(8, 24);
+            this.lblName.Location = new System.Drawing.Point(56, 8);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(296, 56);
+            this.lblName.Size = new System.Drawing.Size(264, 40);
             this.lblName.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(8, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 16);
+            this.label1.Size = new System.Drawing.Size(48, 48);
             this.label1.TabIndex = 1;
             // 
             // lblHealth
             // 
             this.lblHealth.AutoSize = true;
-            this.lblHealth.Location = new System.Drawing.Point(16, 80);
+            this.lblHealth.Location = new System.Drawing.Point(8, 64);
             this.lblHealth.Name = "lblHealth";
             this.lblHealth.Size = new System.Drawing.Size(110, 32);
             this.lblHealth.TabIndex = 2;
@@ -69,7 +68,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblName);
             this.Name = "ucUnit";
-            this.Size = new System.Drawing.Size(325, 125);
+            this.Size = new System.Drawing.Size(325, 104);
             this.Load += new System.EventHandler(this.ucUnit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

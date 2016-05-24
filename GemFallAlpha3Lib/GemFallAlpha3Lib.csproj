@@ -46,6 +46,7 @@
     <Compile Include="Global.cs" />
     <Compile Include="oGem.cs" />
     <Compile Include="oGrid.cs" />
+    <Compile Include="oManaPool.cs" />
     <Compile Include="oTeam.cs" />
     <Compile Include="oUnitAbility.cs" />
     <Compile Include="oUnitStatus.cs" />

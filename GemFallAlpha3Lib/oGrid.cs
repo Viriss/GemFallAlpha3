@@ -10,7 +10,7 @@ namespace GemFallAlphaLib
         public oGem[] Gems;
         public List<ScanMatch> Matches;
         public List<ScanMove> Moves;
-        public int MultiChance = 0;
+        public int MultiColorChance = 0;
 
         public oGrid(int Height, int Width)
         {
@@ -28,19 +28,40 @@ namespace GemFallAlphaLib
 
         public ScanMove BestMove()
         {
-            ScanMove tmp = new ScanMove();
-            foreach(ScanMove m in Moves)
+            Moves.Sort((x, y) => y.Score.CompareTo(x.Score));
+
+            //find non-swords first
+            foreach (ScanMove m in Moves)
             {
-                if (m.Score > tmp.Score) { tmp = m; }
+                if (m.Score > 3 && (m.Color & GemColor.White) != GemColor.White) {
+                    return m;
+                }
             }
-            return tmp;
+            //find swords last
+            foreach (ScanMove m in Moves)
+            {
+                if (m.Score > 3 && (m.Color & GemColor.White) == GemColor.White)
+                {
+                    return m;
+                }
+            }
+
+            //find swords
+            foreach (ScanMove m in Moves)
+            {
+                if (m.Color == GemColor.White) {
+                    return m;
+                }
+            }
+            //find non-swords
+            return Moves[0];
         }
 
         public void Create()
         {
             for(int i = 0; i < Height * Width; i++)
             {
-                if (Rand.rnd.Next(100) < MultiChance)
+                if (Rand.rnd.Next(100) < MultiColorChance)
                 {
                     Gems[i].SetColor(Global.RandomColor());
                 }
@@ -98,7 +119,7 @@ namespace GemFallAlphaLib
             {
                 if (g.Color == GemColor.none)
                 {
-                    if (Rand.rnd.Next(100) < MultiChance)
+                    if (Rand.rnd.Next(100) < MultiColorChance)
                     {
                         g.SetColor(Global.RandomColor());
                     }
@@ -177,12 +198,37 @@ namespace GemFallAlphaLib
         public int HighestScore()
         {
             int val = 0;
+            int xValue = 0;
             foreach(ScanMatch x in Matches)
             {
-                if (x.Strength > val) { val = x.Strength; }
+                xValue = GetCrossValue(x);
+                if (x.Strength + xValue > val) { val = x.Strength + xValue; }
             }
             return val;
         }
+        private int GetCrossValue(ScanMatch Start)
+        {
+            foreach(ScanMatch x in Matches)
+            {
+                if (x.Index == Start.Index && x.Color == Start.Color)
+                {
+                    if (x.Direction != Start.Direction && x.Direction != OppositeDirection(Start.Direction))
+                    {
+                        if (x.Strength > 2) { return x.Strength; }
+                    }
+                }
+            }
+            return 0;
+        }
+        private ScanDirection OppositeDirection(ScanDirection Direction)
+        {
+            if (Direction == ScanDirection.Down) return ScanDirection.Up;
+            if (Direction == ScanDirection.Up) return ScanDirection.Down;
+            if (Direction == ScanDirection.Left) return ScanDirection.Right;
+            if (Direction == ScanDirection.Right) return ScanDirection.Left;
+            return 0;
+        }
+
         public bool isGemNearGem(oGem first, oGem second)
         {
             if (first == null) { return false; }
@@ -192,6 +238,17 @@ namespace GemFallAlphaLib
             if (Math.Abs(first.X - second.X) == 0 && Math.Abs(first.Y - second.Y) <= 1) { return true; }
 
             return false;
+        }
+        public bool hasExtraTurnMove()
+        {
+            bool extraTurn = false;
+
+            foreach (ScanMatch x in Matches)
+            {
+                if (x.Strength > 3) { extraTurn = true; break; }
+            }
+
+            return extraTurn;
         }
         public int Score()
         {
@@ -221,7 +278,7 @@ namespace GemFallAlphaLib
         {
             oGrid myGrid = new oGrid(Height, Width);
 
-            myGrid.MultiChance = this.MultiChance;
+            myGrid.MultiColorChance = this.MultiColorChance;
 
             for(int i = 0; i < Height * Width; i++)
             {
@@ -305,7 +362,7 @@ namespace GemFallAlphaLib
             tmp.FindMatches();
             if (tmp.Matches.Count > 0)
             {
-                Moves.Add(new ScanMove(IndexA, dir, tmp.Gems[IndexB].Color, tmp.Score()));
+                Moves.Add(new ScanMove(IndexA, dir, tmp.Gems[IndexB].Color, tmp.HighestScore(), tmp.Score()));
             }
         }
     }

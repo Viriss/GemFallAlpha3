@@ -13,6 +13,7 @@ namespace GemFallAlphaLib
         public string UserName;
         public List<oUnit> Units;
         public TeamType Type;
+        public oManaPool ManaPool;
 
         public oTeam()
         {
@@ -20,6 +21,7 @@ namespace GemFallAlphaLib
             UserName = "";
             Units = new List<oUnit>();
             Type = TeamType.Monster;
+            ManaPool = new oManaPool();
         }
     }
 }
